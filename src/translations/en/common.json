@@ -1,4 +1,7 @@
 {
-  "YES": "yes",
-  "NO": "no"
+  "PRODUCTS": "Products",
+  "PROFILE": "Profile",
+  "RECIPES": "Recipes",
+  "LOGIN": "Login",
+  "LOGOUT": "Logout"
 }

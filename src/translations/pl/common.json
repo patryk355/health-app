@@ -1,4 +1,7 @@
 {
-  "YES": "tak",
-  "NO": "nie"
+  "PRODUCTS": "Produkty",
+  "PROFILE": "Profil",
+  "RECIPES": "Przepisy",
+  "LOGIN": "Zaloguj",
+  "LOGOUT": "Wyloguj"
 }
