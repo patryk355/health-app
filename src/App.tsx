@@ -66,10 +66,12 @@ function App() {
 
 function Layout() {
   return (
-    <div>
+    <>
       <Navigation />
-      <Outlet />
-    </div>
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
 }
 

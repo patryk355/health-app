@@ -1,0 +1,18 @@
+@import '../../globals.scss';
+
+.navigation {
+  a {
+    text-decoration: none;
+    margin-right: 1rem;
+    color: $text;
+
+    &.active {
+      color: $orange;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      scale: 1.05;
+    }
+  }
+}

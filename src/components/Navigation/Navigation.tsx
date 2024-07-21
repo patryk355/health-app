@@ -14,6 +14,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {useUserStore} from '../../store/userStore.ts';
 
+import styles from './Navigation.module.scss';
+
 const Navigation = () => {
   const {t} = useTranslation();
 
@@ -79,14 +81,17 @@ const Navigation = () => {
   };
 
   return (
-    <AppBar position='static'>
+    <AppBar
+      position='static'
+      style={{background: 'transparent', boxShadow: 'none'}}
+      className={styles.navigation}
+    >
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Typography
             variant='h6'
             noWrap
-            component='a'
-            href='/'
+            component='p'
             sx={{
               mr: 2,
               display: {xs: 'none', md: 'flex'},
@@ -97,14 +102,13 @@ const Navigation = () => {
               textDecoration: 'none',
             }}
           >
-            {/*LOGO*/}
             <NavLink to='/'>LOGO</NavLink>
           </Typography>
 
           <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
             <IconButton
               size='large'
-              aria-label='account of current user'
+              aria-label='menu'
               aria-controls='menu-appbar'
               aria-haspopup='true'
               onClick={handleOpenNavMenu}
@@ -137,7 +141,15 @@ const Navigation = () => {
                     key={`menu_item_${page.path}`}
                     onClick={handleCloseNavMenu}
                   >
-                    <Typography textAlign='center'>{page.label}</Typography>
+                    <NavLink
+                      key={`nav_link_${page.path}`}
+                      to={page.path}
+                      className={({isActive}) =>
+                        isActive ? styles.active : ''
+                      }
+                    >
+                      {page.label}
+                    </NavLink>
                   </MenuItem>
                 ))}
             </Menu>
@@ -145,8 +157,7 @@ const Navigation = () => {
           <Typography
             variant='h5'
             noWrap
-            component='a'
-            // href='/'
+            component='p'
             sx={{
               mr: 2,
               display: {xs: 'flex', md: 'none'},
@@ -158,14 +169,19 @@ const Navigation = () => {
               textDecoration: 'none',
             }}
           >
-            {/*LOGO*/}
             <NavLink to='/'>LOGO</NavLink>
           </Typography>
           <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
             {pages
               .filter((page) => page.visible)
               .map((page) => (
-                <NavLink to={page.path}>{page.label}</NavLink>
+                <NavLink
+                  key={`nav_link_${page.path}`}
+                  to={page.path}
+                  className={({isActive}) => (isActive ? styles.active : '')}
+                >
+                  {page.label}
+                </NavLink>
               ))}
           </Box>
 
