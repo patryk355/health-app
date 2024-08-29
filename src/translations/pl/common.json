@@ -3,5 +3,19 @@
   "PROFILE": "Profil",
   "RECIPES": "Przepisy",
   "LOGIN": "Zaloguj",
-  "LOGOUT": "Wyloguj"
+  "LOGOUT": "Wyloguj",
+  "LOGGING": "Logowanie",
+  "EMAIL": "E-mail",
+  "INVALID_EMAIL": "Nieprawidłowy e-mail",
+  "USERNAME": "Nazwa użytkownika",
+  "FIELD_REQUIRED": "Pole jest wymagane",
+  "PASSWORD": "Hasło",
+  "PASSWORD_MIN_LENGTH": "Hasło musi mieć co najmniej {{minLength}} znaków",
+  "LOGIN_SUCCESS": "Pomyślnie zalogowano",
+  "LOGIN_ERROR": "Nie udało się zalogować",
+  "CREATE_ACCOUNT": "Utwórz konto",
+  "REGISTRATION": "Rejestracja",
+  "REGISTER": "Zarejestruj",
+  "REGISTER_SUCCESS": "Pomyślnie zarejestrowano",
+  "REGISTER_ERROR": "Nie udało się zarejestrować"
 }

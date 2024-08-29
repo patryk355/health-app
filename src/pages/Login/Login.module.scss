@@ -1,0 +1,27 @@
+@import '../../globals.scss';
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    row-gap: calc($row-gap * 2);
+    border: 1px solid $text;
+    border-radius: 5px;
+    padding: $padding;
+
+    h2,
+    a {
+      text-align: center;
+    }
+
+    @media (max-width: 576px) {
+      border: none;
+      padding: 0;
+    }
+  }
+}

@@ -7,20 +7,21 @@ import useForm from '../../hooks/useForm.ts';
 import {emailValidator} from '../../utils/validators.ts';
 import {MIN_PASSWORD_LENGTH} from '../../constants/common.ts';
 
-import styles from './Login.module.scss';
-import {Link} from 'react-router-dom';
+import styles from '../Login/Login.module.scss';
 
 interface Data {
   email: string;
+  name: string;
   password: string;
 }
 
 const initialData = {
   email: '',
+  name: '',
   password: '',
 };
 
-const Login = () => {
+const Register = () => {
   const {t} = useTranslation();
 
   const {data, onChangeHandler, dataErrors, setDataErrors} =
@@ -31,6 +32,10 @@ const Login = () => {
 
     if (!emailValidator(data.email.trim())) {
       _errors.push('email');
+    }
+
+    if (data.name.trim().length === 0) {
+      _errors.push('name');
     }
 
     if (data.password.length < MIN_PASSWORD_LENGTH) {
@@ -55,7 +60,7 @@ const Login = () => {
   return (
     <div className={styles['form-container']}>
       <form onSubmit={onSubmitHandler} className={styles.form}>
-        <h2>{t('LOGGING')}</h2>
+        <h2>{t('REGISTER')}</h2>
         <Input
           name='email'
           value={data.email}
@@ -63,6 +68,14 @@ const Login = () => {
           label={t('EMAIL')}
           hasError={dataErrors.includes('email')}
           errorText={t('INVALID_EMAIL')}
+          onChange={onChangeHandler}
+        />
+        <Input
+          name='name'
+          value={data.name}
+          label={t('USERNAME')}
+          hasError={dataErrors.includes('name')}
+          errorText={t('FIELD_REQUIRED')}
           onChange={onChangeHandler}
         />
         <Input
@@ -77,12 +90,11 @@ const Login = () => {
           onChange={onChangeHandler}
         />
         <Button variant='text' type='submit'>
-          {t('LOGIN')}
+          {t('REGISTER')}
         </Button>
-        <Link to='/register'>{t('CREATE_ACCOUNT')}</Link>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Register;
