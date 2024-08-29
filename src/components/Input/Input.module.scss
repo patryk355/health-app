@@ -1,0 +1,40 @@
+@import '../../globals.scss';
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: $row-gap;
+
+  .label {
+    font-size: 0.9rem;
+    color: $orange;
+  }
+
+  .root-input {
+    &::before {
+      border-bottom: 1px solid $text;
+    }
+
+    &::after {
+      border-bottom: 2px solid $orange;
+    }
+
+    &:hover {
+      &::before {
+        border-bottom: 1px solid $text !important;
+      }
+    }
+  }
+
+  .input {
+    width: 100%;
+    font-family: $font-family;
+    color: $text;
+  }
+
+  .error-text {
+    font-size: 0.8rem;
+    color: $red;
+  }
+}
