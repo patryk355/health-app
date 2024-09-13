@@ -1,12 +1,14 @@
 import {useEffect} from 'react';
-import {useUserStore} from '../../store/userStore.ts';
+import {useNavigate} from 'react-router-dom';
+import {logout} from '../../utils/logout.ts';
 
 const Logout = () => {
-  const setIsLogged = useUserStore((state) => state.setIsLogged);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    setIsLogged(false);
-  }, [setIsLogged]);
+    logout();
+    navigate('/');
+  }, [navigate]);
 
   return <></>;
 };

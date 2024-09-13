@@ -1,14 +1,16 @@
 import {FormEvent} from 'react';
 import {Button} from '@mui/material';
 import {useTranslation} from 'react-i18next';
+import {Link, useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 import Input from '../../components/Input/Input.tsx';
 import useForm from '../../hooks/useForm.ts';
+import {useUserStore} from '../../store/userStore.ts';
 import {emailValidator} from '../../utils/validators.ts';
 import {MIN_PASSWORD_LENGTH} from '../../constants/common.ts';
 
 import styles from './Login.module.scss';
-import {Link} from 'react-router-dom';
 
 interface Data {
   email: string;
@@ -26,6 +28,10 @@ const Login = () => {
   const {data, onChangeHandler, dataErrors, setDataErrors} =
     useForm<Data>(initialData);
 
+  const navigate = useNavigate();
+
+  const {setToken, setUser, setIsLogged} = useUserStore();
+
   const validate = () => {
     const _errors: string[] = [];
 
@@ -42,14 +48,34 @@ const Login = () => {
     return _errors.length === 0;
   };
 
-  const onSubmitHandler = (e: FormEvent) => {
+  const onSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!validate()) {
       return;
     }
 
-    // TODO: send request to server
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth`,
+        data,
+      );
+      console.debug('Login :: onSubmitHandler', response.data);
+      setToken(response.data.token);
+      setUser({
+        id: response.data.id,
+        email: response.data.email,
+        username: response.data.username,
+        role: response.data.role,
+      });
+      setIsLogged(true);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('token', response.data.token);
+      navigate('/');
+    } catch (error) {
+      // TODO: show error message in UI
+      console.error('Login :: onSubmitHandler', error);
+    }
   };
 
   return (

@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {
   createBrowserRouter,
   Outlet,
@@ -16,6 +17,7 @@ import Profile from './pages/Profile/Profile.tsx';
 import Recipes from './pages/Recipes/Recipes.tsx';
 import Register from './pages/Register/Register.tsx';
 
+import axios, {getErrorText} from './services/axios.ts';
 import {useUserStore} from './store/userStore.ts';
 
 import './App.scss';
@@ -40,14 +42,17 @@ const router = createBrowserRouter([
       },
       {
         path: 'login',
+        loader: loginLoader,
         Component: Login,
       },
       {
         path: 'logout',
+        loader: protectedLoader,
         Component: Logout,
       },
       {
         path: 'register',
+        loader: loginLoader,
         Component: Register,
       },
       {
@@ -59,6 +64,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+function loginLoader() {
+  const isLogged = useUserStore.getState().isLogged;
+  if (isLogged) {
+    return redirect('/');
+  }
+  return null;
+}
+
 function protectedLoader() {
   const isLogged = useUserStore.getState().isLogged;
   if (!isLogged) {
@@ -68,6 +81,34 @@ function protectedLoader() {
 }
 
 function App() {
+  const {setToken, setUser, setIsLogged} = useUserStore();
+
+  useEffect(() => {
+    let isMounted = true;
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return;
+    }
+
+    setToken(token);
+    axios
+      .get('/users/me')
+      .then((response) => {
+        if (isMounted) {
+          console.debug('App :: getUser', response.data);
+          setUser(response.data);
+          setIsLogged(true);
+        }
+      })
+      .catch((error) => {
+        console.error('App :: getUser', getErrorText(error));
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [setIsLogged, setToken, setUser]);
+
   return <RouterProvider router={router} />;
 }
 
