@@ -1,1 +1,24 @@
-{}
+{
+  "CATEGORY_nut": "Orzechy",
+  "CATEGORY_fruit": "Owoce",
+  "CATEGORY_vegetable": "Warzywa",
+  "CATEGORY_dairy": "Nabiał",
+  "CATEGORY_fish": "Ryby",
+  "CATEGORY_seed": "Nasiona",
+  "CATEGORY_meat": "Mięso",
+  "CATEGORY_drink": "Napoje",
+  "CATEGORY_plant": "Rośliny",
+  "CATEGORY_other": "Inne",
+  "NO_PRODUCTS": "Nie znaleziono produktów.",
+  "strawberry": "Truskawka",
+  "avocado": "Awokado",
+  "blueberry": "Borówka amerykańska",
+  "tomato": "Pomidor",
+  "broccoli": "Brokuł",
+  "spinach": "Szpinak",
+  "walnut": "Orzech włoski",
+  "almond": "Migdał",
+  "cashew_nut": "Orzech nerkowca",
+  "salmon": "Łosoś",
+  "sardine": "Sardynka"
+}

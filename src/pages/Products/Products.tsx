@@ -1,5 +1,54 @@
+import {useSearchParams} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
+import {useQuery} from '@tanstack/react-query';
+
+import CategoryList from '../../features/CategoryList/CategoryList.tsx';
+import ProductList from '../../features/ProductList/ProductList.tsx';
+import Loader from '../../components/Loader/Loader.tsx';
+import {getCategories} from '../../services/categories.ts';
+import {getProducts} from '../../services/products.ts';
+
+import styles from './Products.module.scss';
+
 const Products = () => {
-  return <div>Products</div>;
+  const {t} = useTranslation('products');
+
+  const {data: categories, isPending: isCategoriesPending} = useQuery({
+    queryKey: ['categories'],
+    queryFn: getCategories,
+  });
+
+  const [searchParams] = useSearchParams();
+
+  const categoryFromSearchParam = searchParams.get('category');
+  const currentCategory =
+    categories && categoryFromSearchParam
+      ? categories.find((category) => category.name === categoryFromSearchParam)
+      : null;
+
+  const {data: products, isPending: isProductsPending} = useQuery({
+    queryKey: ['products'],
+    queryFn: getProducts,
+    select: (data) =>
+      currentCategory
+        ? data.filter((product) => product.category_id === currentCategory?.id)
+        : data,
+  });
+
+  return (
+    <div className={styles.container}>
+      {isCategoriesPending && <Loader />}
+      {categories && (
+        <CategoryList
+          categories={categories}
+          currentCategory={currentCategory}
+        />
+      )}
+      {isProductsPending && <Loader />}
+      {products && products.length > 0 && <ProductList products={products} />}
+      {products?.length === 0 && <p className='center'>{t('NO_PRODUCTS')}</p>}
+    </div>
+  );
 };
 
 export default Products;

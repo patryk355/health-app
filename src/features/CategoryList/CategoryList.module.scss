@@ -1,0 +1,24 @@
+@import '../../globals';
+
+.categories {
+  max-width: 150px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  row-gap: $row-gap * 2;
+  overflow: auto;
+
+  .category {
+    text-decoration: none;
+
+    &.active {
+      color: $orange;
+    }
+  }
+
+  @media (max-width: $md) {
+    flex-direction: row;
+    max-width: 100%;
+    column-gap: $column-gap;
+  }
+}

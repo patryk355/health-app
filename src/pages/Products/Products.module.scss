@@ -1,0 +1,13 @@
+@import '../../globals.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 1fr;
+  gap: $row-gap;
+
+  @media (max-width: $md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
