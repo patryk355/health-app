@@ -1,7 +1,24 @@
 $orange: #ff5722;
 $red: #d32f2f;
 $text: #f1eeee;
+$grey: #2a2929;
+$light-grey: #5b5a5a;
+$border-color: #565555;
 $font-family: 'Montserrat', sans-serif;
 $padding: 2rem;
-$row-gap: 1rem;
-$column-gap: 1rem;
+$gap: 1rem;
+$row-gap: $gap;
+$column-gap: $gap;
+$border-radius: 15px;
+$bg-linear-gradient: linear-gradient(
+  180deg,
+  rgba(22, 22, 23, 1) 0%,
+  rgba(35, 35, 37, 1) 15%,
+  rgba(48, 55, 55, 1) 100%
+);
+
+$sm: 350px;
+$md: 576px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
