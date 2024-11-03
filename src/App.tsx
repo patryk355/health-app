@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import {createTheme, ThemeProvider} from '@mui/material';
 import {deepOrange} from '@mui/material/colors';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 import Navigation from './components/Navigation/Navigation.tsx';
 import Home from './pages/Home/Home.tsx';
@@ -21,6 +22,8 @@ import axios, {getErrorText} from './services/axios.ts';
 import {useUserStore} from './store/userStore.ts';
 
 import './App.scss';
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -120,12 +123,14 @@ const theme = createTheme({
 
 function Layout() {
   return (
-    <ThemeProvider theme={theme}>
-      <Navigation />
-      <main>
-        <Outlet />
-      </main>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <Navigation />
+        <main>
+          <Outlet />
+        </main>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
