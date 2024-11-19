@@ -86,7 +86,7 @@ const Navigation = () => {
       style={{background: 'transparent', boxShadow: 'none'}}
       className={styles.navigation}
     >
-      <Container maxWidth='xl'>
+      <Container maxWidth='xxl' className={styles.container}>
         <Toolbar disableGutters>
           <Typography
             variant='h6'

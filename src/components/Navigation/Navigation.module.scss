@@ -1,6 +1,13 @@
 @import '../../globals.scss';
 
 .navigation {
+  padding-inline: $padding;
+
+  & > .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   a {
     text-decoration: none;
     margin-right: 1rem;

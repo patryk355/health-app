@@ -116,6 +116,16 @@ function App() {
 }
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 350,
+      md: 576,
+      lg: 992,
+      xl: 1200,
+      xxl: 1400,
+    },
+  },
   palette: {
     primary: deepOrange,
   },
