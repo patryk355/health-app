@@ -7,4 +7,12 @@ export interface Product {
   contraindications: string;
   images: string;
   category_id: number;
+  minerals?: {
+    mineral_id: number;
+    amount: number;
+  }[];
+  goodness?: {
+    goodness_id: number;
+    amount: number;
+  }[];
 }

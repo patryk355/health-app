@@ -1,0 +1,115 @@
+@import '../../globals';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: $row-gap;
+
+  h1 {
+    text-align: center;
+    color: $orange;
+  }
+
+  .imageContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $column-gap;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 15rem;
+
+      img,
+      svg {
+        border-radius: $border-radius;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      p {
+        max-width: 40rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .prosAndCons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $column-gap;
+
+    span {
+      display: flex;
+      column-gap: calc($column-gap / 2);
+      margin-bottom: $row-gap;
+
+      svg {
+        width: 2rem;
+      }
+    }
+
+    .pros {
+      svg {
+        color: $green;
+      }
+    }
+
+    .cons {
+      svg {
+        color: $red;
+      }
+    }
+  }
+
+  .tableContainer {
+    border-radius: $border-radius;
+
+    table {
+      background-color: $light-grey;
+
+      td,
+      th {
+        color: $text;
+      }
+    }
+  }
+
+  .mineralsAndGoodness {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $column-gap;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      row-gap: $row-gap;
+    }
+  }
+
+  @media (min-width: $lg) {
+    .imageContainer {
+      grid-template-columns: 1fr 1fr;
+
+      & > div {
+        height: 20rem;
+      }
+    }
+
+    .prosAndCons {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .mineralsAndGoodness {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: $xxl) {
+    .imageContainer > div {
+      height: 25rem;
+    }
+  }
+}

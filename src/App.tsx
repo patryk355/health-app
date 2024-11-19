@@ -13,12 +13,15 @@ import Navigation from './components/Navigation/Navigation.tsx';
 import Home from './pages/Home/Home.tsx';
 import Login from './pages/Login/Login.tsx';
 import Logout from './pages/Logout/Logout.tsx';
+import Product from './pages/Product/Product.tsx';
 import Products from './pages/Products/Products.tsx';
 import Profile from './pages/Profile/Profile.tsx';
 import Recipes from './pages/Recipes/Recipes.tsx';
 import Register from './pages/Register/Register.tsx';
 
 import axios, {getErrorText} from './services/axios.ts';
+import {getMinerals} from './services/minerals.ts';
+import {getGoodness} from './services/goodness.ts';
 import {useUserStore} from './store/userStore.ts';
 
 import './App.scss';
@@ -37,7 +40,16 @@ const router = createBrowserRouter([
       },
       {
         path: 'products',
-        Component: Products,
+        children: [
+          {
+            index: true,
+            Component: Products,
+          },
+          {
+            path: ':id',
+            Component: Product,
+          },
+        ],
       },
       {
         path: 'recipes',
@@ -111,6 +123,11 @@ function App() {
       isMounted = false;
     };
   }, [setIsLogged, setToken, setUser]);
+
+  useEffect(() => {
+    getMinerals();
+    getGoodness();
+  }, []);
 
   return <RouterProvider router={router} />;
 }

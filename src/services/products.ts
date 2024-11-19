@@ -13,3 +13,16 @@ export const getProducts = async (): Promise<Product[]> => {
     return [];
   }
 };
+
+export const getProduct = async (
+  id: string | undefined,
+): Promise<Product | null> => {
+  try {
+    const response = await axios.get('/products/' + id);
+    console.debug('products :: getProduct', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('products :: getProduct', error);
+    return null;
+  }
+};
