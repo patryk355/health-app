@@ -19,7 +19,7 @@
       text-align: center;
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: $md) {
       border: none;
       padding: 0;
     }
