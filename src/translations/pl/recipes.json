@@ -1,1 +1,7 @@
-{}
+{
+  "NO_RECIPES": "Nie znaleziono przepisów.",
+  "DESCRIPTION": "Opis",
+  "INGREDIENTS": "Składniki",
+  "INSTRUCTION": "Instrukcja",
+  "RELATED_PRODUCTS": "Powiązane produkty"
+}

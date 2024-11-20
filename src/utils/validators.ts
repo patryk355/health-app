@@ -9,7 +9,7 @@ export const imageValidator = async (url: string) => {
 
     return !!(contentType && contentType.startsWith('image'));
   } catch (error) {
-    console.log(error);
+    console.error('validators :: imageValidator', url, error);
     return false;
   }
 };

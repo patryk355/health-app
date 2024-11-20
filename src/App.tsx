@@ -16,6 +16,7 @@ import Logout from './pages/Logout/Logout.tsx';
 import Product from './pages/Product/Product.tsx';
 import Products from './pages/Products/Products.tsx';
 import Profile from './pages/Profile/Profile.tsx';
+import Recipe from './pages/Recipe/Recipe.tsx';
 import Recipes from './pages/Recipes/Recipes.tsx';
 import Register from './pages/Register/Register.tsx';
 
@@ -53,7 +54,16 @@ const router = createBrowserRouter([
       },
       {
         path: 'recipes',
-        Component: Recipes,
+        children: [
+          {
+            index: true,
+            Component: Recipes,
+          },
+          {
+            path: ':id',
+            Component: Recipe,
+          },
+        ],
       },
       {
         path: 'login',
