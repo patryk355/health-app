@@ -33,13 +33,8 @@ const Navigation = () => {
         label: t('RECIPES'),
         visible: true,
       },
-      {
-        path: 'profile',
-        label: t('PROFILE'),
-        visible: isLogged,
-      },
     ],
-    [isLogged, t],
+    [t],
   );
 
   const settings = useMemo(
