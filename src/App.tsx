@@ -8,6 +8,7 @@ import {
 import {createTheme, ThemeProvider} from '@mui/material';
 import {deepOrange} from '@mui/material/colors';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ToastContainer} from 'react-toastify';
 
 import Navigation from './components/Navigation/Navigation.tsx';
 import Home from './pages/Home/Home.tsx';
@@ -25,6 +26,7 @@ import {getMinerals} from './services/minerals.ts';
 import {getGoodness} from './services/goodness.ts';
 import {useUserStore} from './store/userStore.ts';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 
 const queryClient = new QueryClient();
@@ -166,6 +168,7 @@ function Layout() {
         <main>
           <Outlet />
         </main>
+        <ToastContainer theme='dark' />
       </ThemeProvider>
     </QueryClientProvider>
   );
