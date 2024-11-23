@@ -19,7 +19,8 @@ import styles from './Navigation.module.scss';
 const Navigation = () => {
   const {t} = useTranslation();
 
-  const {isLogged} = useUserStore((state) => state);
+  const {isLogged, user} = useUserStore((state) => state);
+  const isAdmin = user?.role === 'admin';
 
   const pages = useMemo(
     () => [
@@ -33,8 +34,13 @@ const Navigation = () => {
         label: t('RECIPES'),
         visible: true,
       },
+      {
+        path: 'proposals',
+        label: t('PROPOSALS'),
+        visible: isAdmin,
+      },
     ],
-    [t],
+    [t, isAdmin],
   );
 
   const settings = useMemo(

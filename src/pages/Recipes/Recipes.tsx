@@ -5,12 +5,16 @@ import {getRecipes} from '../../services/recipes.ts';
 import Loader from '../../components/Loader/Loader.tsx';
 import RecipeList from '../../features/RecipeList/RecipeList.tsx';
 
-const Recipes = () => {
+interface Props {
+  active: boolean;
+}
+
+const Recipes = ({active = true}: Props) => {
   const {t} = useTranslation('recipes');
 
   const {data: recipes, isPending} = useQuery({
     queryKey: ['recipes'],
-    queryFn: () => getRecipes(true),
+    queryFn: () => getRecipes(active),
   });
 
   if (isPending) return <Loader />;

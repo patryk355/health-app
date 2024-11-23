@@ -1,10 +1,5 @@
 import {useEffect} from 'react';
-import {
-  createBrowserRouter,
-  Outlet,
-  redirect,
-  RouterProvider,
-} from 'react-router-dom';
+import {createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom';
 import {createTheme, ThemeProvider} from '@mui/material';
 import {deepOrange} from '@mui/material/colors';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
@@ -29,6 +24,11 @@ import {useUserStore} from './store/userStore.ts';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
+import {
+  loginLoader,
+  protectedAdminLoader,
+  protectedLoader,
+} from './utils/loaders.ts';
 
 const queryClient = new QueryClient();
 
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            Component: Recipes,
+            Component: () => <Recipes active={true} />,
           },
           {
             path: 'create',
@@ -72,6 +72,11 @@ const router = createBrowserRouter([
             Component: Recipe,
           },
         ],
+      },
+      {
+        path: 'proposals',
+        loader: protectedAdminLoader,
+        Component: () => <Recipes active={false} />,
       },
       {
         path: 'login',
@@ -96,22 +101,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
-function loginLoader() {
-  const isLogged = useUserStore.getState().isLogged;
-  if (isLogged) {
-    return redirect('/');
-  }
-  return null;
-}
-
-function protectedLoader() {
-  const isLogged = useUserStore.getState().isLogged;
-  if (!isLogged) {
-    return redirect('/');
-  }
-  return null;
-}
 
 function App() {
   const {setToken, setUser, setIsLogged} = useUserStore();
