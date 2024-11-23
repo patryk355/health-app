@@ -3,5 +3,18 @@
   "DESCRIPTION": "Opis",
   "INGREDIENTS": "Składniki",
   "INSTRUCTION": "Instrukcja",
-  "RELATED_PRODUCTS": "Powiązane produkty"
+  "IMAGES": "Zdjęcia",
+  "RELATED_PRODUCTS": "Powiązane produkty",
+  "ADD_RECIPE": "Dodaj przepis",
+  "INGREDIENTS_INFO": "Wprowadź składniki. Pamiętaj o jednostkach miary.",
+  "STEPS_INFO": "Wprowadź opis przygotowania krok po kroku. Pamiętaj, że kolejność ma znaczenie!",
+  "IMAGES_INFO": "Dodaj linki do zdjęć. Mogą to być końcowe zdjęcia lub w trakcie przygotowania.",
+  "RECIPE_NAME_REQUIRED": "Nazwa przepisu jest wymagana",
+  "INGREDIENTS_REQUIRED": "Przepis musi zawierać przynajmniej jeden składnik",
+  "INGREDIENT_CANNOT_BE_EMPTY": "Składnik nie może mieć pustej wartości",
+  "STEPS_REQUIRED": "Przepis musi mieć instrukcję wykonania",
+  "STEP_CANNOT_BE_EMPTY": "Krok instrukcji nie może mieć pustej wartości",
+  "WRONG_IMAGE_URL": "Niepoprawny link do zdjęcia: {{url}}",
+  "CREATE_RECIPE_SUCCESS": "Przepis został wysłany do sprawdzenia",
+  "CREATE_RECIPE_ERROR": "Nie udało się wysłać przepisu do sprawdzenia"
 }

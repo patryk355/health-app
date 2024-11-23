@@ -11,6 +11,7 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ToastContainer} from 'react-toastify';
 
 import Navigation from './components/Navigation/Navigation.tsx';
+import CreateRecipe from './pages/CreateRecipe/CreateRecipe.tsx';
 import Home from './pages/Home/Home.tsx';
 import Login from './pages/Login/Login.tsx';
 import Logout from './pages/Logout/Logout.tsx';
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
           {
             index: true,
             Component: Recipes,
+          },
+          {
+            path: 'create',
+            loader: protectedLoader,
+            Component: CreateRecipe,
           },
           {
             path: ':id',

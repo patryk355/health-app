@@ -1,60 +1,70 @@
 @import '../../globals.scss';
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $row-gap;
+  display: flex;
+  flex-direction: column;
+  row-gap: $row-gap;
 
-  .item {
-    height: 250px;
+  & > a {
+    align-self: flex-end;
+  }
+
+  & > div {
     display: grid;
-    grid-template-rows: 80% 20%;
-    background: $grey;
-    border-radius: $border-radius;
-    border: 1px solid $border-color;
-    overflow: hidden;
-    text-decoration: none;
+    grid-template-columns: 1fr;
+    gap: $row-gap;
 
-    .imageContainer {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
+    .item {
+      height: 250px;
+      display: grid;
+      grid-template-rows: 80% 20%;
+      background: $grey;
+      border-radius: $border-radius;
+      border: 1px solid $border-color;
+      overflow: hidden;
+      text-decoration: none;
 
-      img {
-        width: 100%;
+      .imageContainer {
         height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+
+        svg {
+          width: 5rem;
+        }
       }
 
-      svg {
-        width: 5rem;
+      span {
+        background: $light-grey;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: calc($padding / 4);
+        z-index: 2;
+      }
+
+      &:hover .imageContainer img {
+        transform: scale(1.1);
       }
     }
 
-    span {
-      background: $light-grey;
-      font-size: 1.2rem;
-      text-align: center;
-      padding: calc($padding / 4);
-      z-index: 2;
+    @media (min-width: $lg) {
+      grid-template-columns: repeat(2, 1fr);
     }
-
-    &:hover .imageContainer img {
-      transform: scale(1.1);
+    @media (min-width: $xl) {
+      grid-template-columns: repeat(3, 1fr);
     }
-  }
-
-  @media (min-width: $lg) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (min-width: $xl) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media (min-width: $xxl) {
-    grid-template-columns: repeat(4, 1fr);
+    @media (min-width: $xxl) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }

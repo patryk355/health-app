@@ -17,5 +17,10 @@
   "REGISTRATION": "Rejestracja",
   "REGISTER": "Zarejestruj",
   "REGISTER_SUCCESS": "Pomyślnie zarejestrowano",
-  "REGISTER_ERROR": "Nie udało się zarejestrować"
+  "REGISTER_ERROR": "Nie udało się zarejestrować",
+  "SAVE": "Zapisz",
+  "ADD": "Dodaj",
+  "NAME": "Nazwa",
+  "DESCRIPTION": "Opis",
+  "PROCESSING": "Przetwarzanie..."
 }

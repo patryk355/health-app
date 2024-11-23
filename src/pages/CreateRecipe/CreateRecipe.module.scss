@@ -1,0 +1,73 @@
+@import '../../globals.scss';
+
+.container {
+  svg {
+    width: 2rem;
+  }
+
+  .addIcon:hover svg {
+    cursor: pointer;
+    stroke: $green;
+  }
+
+  .deleteIcon:hover svg {
+    cursor: pointer;
+    stroke: $red;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc($row-gap * 2);
+
+    .ingredients,
+    .steps,
+    .images {
+      display: flex;
+      flex-direction: column;
+      row-gap: $row-gap;
+
+      & > span:first-child {
+        display: flex;
+        align-items: center;
+        column-gap: calc($column-gap / 2);
+
+        p {
+          color: $orange;
+        }
+      }
+
+      .infoContainer {
+        display: flex;
+        align-items: center;
+        column-gap: calc($column-gap / 2);
+
+        span {
+          width: 2rem;
+        }
+
+        svg {
+          stroke: $blue;
+        }
+      }
+
+      .inputContainer {
+        display: flex;
+        align-items: center;
+        column-gap: $column-gap;
+      }
+    }
+  }
+
+  @media (min-width: $lg) {
+    form {
+      grid-template-columns: repeat(2, 1fr);
+
+      button {
+        grid-column: span 2;
+        width: 30%;
+        margin-inline: auto;
+      }
+    }
+  }
+}
