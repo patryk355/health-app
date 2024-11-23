@@ -1,3 +1,4 @@
+import {Fragment} from 'react';
 import {Link, Navigate, useParams} from 'react-router-dom';
 import {useQuery} from '@tanstack/react-query';
 import {useTranslation} from 'react-i18next';
@@ -70,12 +71,12 @@ const Recipe = () => {
         <h2>{t('RELATED_PRODUCTS')}</h2>
         <p>
           {products?.map((item, index) => (
-            <>
-              <Link key={item.id} to={`/products/${item.id}`}>
+            <Fragment key={item.id}>
+              <Link to={`/products/${item.id}`}>
                 {t(`products:${item.name}`)}
               </Link>
               {index !== products.length - 1 && ' • '}
-            </>
+            </Fragment>
           ))}
         </p>
       </section>
