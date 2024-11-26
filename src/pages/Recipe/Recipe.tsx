@@ -77,19 +77,21 @@ const Recipe = () => {
             ))}
           </ol>
         </section>
-        <section>
-          <h2>{t('RELATED_PRODUCTS')}</h2>
-          <p>
-            {products?.map((item, index) => (
-              <Fragment key={item.id}>
-                <Link to={`/products/${item.id}`}>
-                  {t(`products:${item.name}`)}
-                </Link>
-                {index !== products.length - 1 && ' • '}
-              </Fragment>
-            ))}
-          </p>
-        </section>
+        {products && products.length > 0 && (
+          <section>
+            <h2>{t('RELATED_PRODUCTS')}</h2>
+            <p>
+              {products.map((item, index) => (
+                <Fragment key={item.id}>
+                  <Link to={`/products/${item.id}`}>
+                    {t(`products:${item.name}`)}
+                  </Link>
+                  {index !== products.length - 1 && ' • '}
+                </Fragment>
+              ))}
+            </p>
+          </section>
+        )}
         {isAdmin && (
           <section className={styles.buttons}>
             <Button>
