@@ -15,4 +15,5 @@ export interface Product {
     goodness_id: number;
     amount: number;
   }[];
+  recipes?: number[];
 }

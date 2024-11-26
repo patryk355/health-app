@@ -1,9 +1,10 @@
-import {useEffect, useState} from 'react';
-import {Navigate, useParams} from 'react-router-dom';
+import {Fragment, useEffect, useState} from 'react';
+import {Link, Navigate, useParams} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import {useQuery} from '@tanstack/react-query';
 
 import {getProduct} from '../../services/products.ts';
+import {getRecipes} from '../../services/recipes.ts';
 import MineralTable from '../../features/ProductDetails/MineralTable.tsx';
 import GoodnessTable from '../../features/ProductDetails/GoodnessTable.tsx';
 import Loader from '../../components/Loader/Loader.tsx';
@@ -22,6 +23,13 @@ const Product = () => {
     queryKey: ['product', id],
     queryFn: () => getProduct(id),
   });
+  const {data: allRecipes} = useQuery({
+    queryKey: ['recipes'],
+    queryFn: () => getRecipes(true),
+  });
+  const recipes = allRecipes?.filter(
+    (item) => product && product?.recipes?.includes(item.id),
+  );
 
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
@@ -115,6 +123,19 @@ const Product = () => {
         <MineralTable product={product} />
         <GoodnessTable product={product} />
       </div>
+      {recipes && recipes.length > 0 && (
+        <>
+          <h2>{t('RELATED_RECIPES')}</h2>
+          <p>
+            {recipes.map((item, index) => (
+              <Fragment key={item.id}>
+                <Link to={`/recipes/${item.id}`}>{item.name}</Link>
+                {index !== recipes.length - 1 && ' • '}
+              </Fragment>
+            ))}
+          </p>
+        </>
+      )}
       {/*<pre style={{whiteSpace: 'pre-wrap'}}>*/}
       {/*  {JSON.stringify(product, null, 2)}*/}
       {/*</pre>*/}
