@@ -16,5 +16,9 @@
   "STEP_CANNOT_BE_EMPTY": "Krok instrukcji nie może mieć pustej wartości",
   "WRONG_IMAGE_URL": "Niepoprawny link do zdjęcia: {{url}}",
   "CREATE_RECIPE_SUCCESS": "Przepis został wysłany do sprawdzenia",
-  "CREATE_RECIPE_ERROR": "Nie udało się wysłać przepisu do sprawdzenia"
+  "CREATE_RECIPE_ERROR": "Nie udało się wysłać przepisu do sprawdzenia",
+  "DELETE_RECIPE_TITLE": "Usuń przepis",
+  "DELETE_RECIPE_DESCRIPTION": "Czy na pewno chcesz usunąć przepis o nazwie {{name}}?",
+  "DELETE_RECIPE_SUCCESS": "Przepis został usunięty",
+  "DELETE_RECIPE_ERROR": "Nie udało się usunąć przepisu"
 }

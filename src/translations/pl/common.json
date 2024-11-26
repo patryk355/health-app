@@ -21,6 +21,9 @@
   "REGISTER_ERROR": "Nie udało się zarejestrować",
   "SAVE": "Zapisz",
   "ADD": "Dodaj",
+  "CANCEL": "Anuluj",
+  "DELETE": "Usuń",
+  "EDIT": "Edytuj",
   "NAME": "Nazwa",
   "DESCRIPTION": "Opis",
   "PROCESSING": "Przetwarzanie..."

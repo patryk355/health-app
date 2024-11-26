@@ -47,3 +47,14 @@ export const createRecipe = async (
     return null;
   }
 };
+
+export const deleteRecipe = async (recipeId: number): Promise<boolean> => {
+  try {
+    const response = await axios.delete(`/recipes/${recipeId}`);
+    console.debug('recipes :: deleteRecipe', response.data);
+    return true;
+  } catch (error) {
+    console.error('recipes :: deleteRecipe', error);
+    return false;
+  }
+};

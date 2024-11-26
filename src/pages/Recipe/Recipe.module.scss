@@ -30,6 +30,39 @@
     row-gap: $row-gap;
   }
 
+  .buttons {
+    button {
+      display: flex;
+      align-items: center;
+      column-gap: calc($column-gap / 2);
+      color: $text;
+
+      svg {
+        width: 1.5rem;
+      }
+
+      &:first-child {
+        svg {
+          stroke: $red;
+        }
+      }
+
+      &:nth-child(2) {
+        svg {
+          stroke: $orange;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $md) {
+    .buttons {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      column-gap: $column-gap;
+    }
+  }
   @media (min-width: $lg) {
     .imageContainer {
       grid-template-columns: repeat(2, 1fr);
