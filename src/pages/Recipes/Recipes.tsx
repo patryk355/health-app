@@ -23,7 +23,7 @@ const Recipes = ({active = true}: Props) => {
     return <p className='center'>{t('NO_RECIPES')}</p>;
   }
 
-  return <RecipeList recipes={recipes} />;
+  return <RecipeList recipes={recipes} showAddButton={active} />;
 };
 
 export default Recipes;

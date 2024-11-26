@@ -10,16 +10,17 @@ import styles from './RecipeList.module.scss';
 
 interface Props {
   recipes: Recipe[];
+  showAddButton?: boolean;
 }
 
-const RecipeList = ({recipes}: Props) => {
+const RecipeList = ({recipes, showAddButton}: Props) => {
   const {t} = useTranslation('recipes');
 
   const isLogged = useUserStore((state) => state.isLogged);
 
   return (
     <div className={styles.container}>
-      {isLogged && (
+      {isLogged && showAddButton && (
         <Link to={'/recipes/create'}>
           <Button variant='contained'>{t('ADD_RECIPE')}</Button>
         </Link>
