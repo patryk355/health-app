@@ -152,6 +152,7 @@ const theme = createTheme({
   },
   palette: {
     primary: deepOrange,
+    mode: 'dark',
   },
 });
 
