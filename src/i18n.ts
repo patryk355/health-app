@@ -8,6 +8,7 @@ import homepageEN from './translations/en/homepage.json';
 import mineralsEN from './translations/en/minerals.json';
 import productsEN from './translations/en/products.json';
 import recipesEN from './translations/en/recipes.json';
+import usersEN from './translations/en/users.json';
 
 import commonPL from './translations/pl/common.json';
 import goodnessPL from './translations/pl/goodness.json';
@@ -15,6 +16,7 @@ import homepagePL from './translations/pl/homepage.json';
 import mineralsPL from './translations/pl/minerals.json';
 import productsPL from './translations/pl/products.json';
 import recipesPL from './translations/pl/recipes.json';
+import usersPL from './translations/pl/users.json';
 
 const resources = {
   en: {
@@ -24,6 +26,7 @@ const resources = {
     minerals: mineralsEN,
     products: productsEN,
     recipes: recipesEN,
+    users: usersEN,
   },
   pl: {
     common: commonPL,
@@ -32,6 +35,7 @@ const resources = {
     minerals: mineralsPL,
     products: productsPL,
     recipes: recipesPL,
+    users: usersPL,
   },
 };
 

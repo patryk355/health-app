@@ -1,9 +1,13 @@
 import {FormEvent} from 'react';
 import {Button} from '@mui/material';
 import {useTranslation} from 'react-i18next';
+import {toast} from 'react-toastify';
+import {useMutation} from '@tanstack/react-query';
+import {useNavigate} from 'react-router-dom';
 
 import Input from '../../components/Input/Input.tsx';
 import useForm from '../../hooks/useForm.ts';
+import {createUser} from '../../services/user.ts';
 import {emailValidator} from '../../utils/validators.ts';
 import {MIN_PASSWORD_LENGTH} from '../../constants/common.ts';
 
@@ -11,21 +15,37 @@ import styles from '../Login/Login.module.scss';
 
 interface Data {
   email: string;
-  name: string;
+  username: string;
   password: string;
 }
 
 const initialData = {
   email: '',
-  name: '',
+  username: '',
   password: '',
 };
 
 const Register = () => {
-  const {t} = useTranslation();
+  const {t} = useTranslation(['common', 'users']);
 
   const {data, onChangeHandler, dataErrors, setDataErrors} =
     useForm<Data>(initialData);
+
+  const navigate = useNavigate();
+
+  const mutation = useMutation({
+    mutationFn: async () => {
+      toast
+        .promise(createUser(data), {
+          pending: t('PROCESSING'),
+          success: t('users:CREATE_USER_SUCCESS'),
+          error: t('users:CREATE_USER_ERROR'),
+        })
+        .then(() => {
+          navigate('/login');
+        });
+    },
+  });
 
   const validate = () => {
     const _errors: string[] = [];
@@ -34,8 +54,8 @@ const Register = () => {
       _errors.push('email');
     }
 
-    if (data.name.trim().length === 0) {
-      _errors.push('name');
+    if (data.username.trim().length === 0) {
+      _errors.push('username');
     }
 
     if (data.password.length < MIN_PASSWORD_LENGTH) {
@@ -47,14 +67,13 @@ const Register = () => {
     return _errors.length === 0;
   };
 
-  const onSubmitHandler = (e: FormEvent) => {
+  const onSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!validate()) {
       return;
     }
-
-    // TODO: send request to server
+    mutation.mutate();
   };
 
   return (
@@ -71,10 +90,10 @@ const Register = () => {
           onChange={onChangeHandler}
         />
         <Input
-          name='name'
-          value={data.name}
+          name='username'
+          value={data.username}
           label={t('USERNAME')}
-          hasError={dataErrors.includes('name')}
+          hasError={dataErrors.includes('username')}
           errorText={t('FIELD_REQUIRED')}
           onChange={onChangeHandler}
         />
