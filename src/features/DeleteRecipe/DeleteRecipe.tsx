@@ -21,7 +21,7 @@ interface Props {
 }
 
 const DeleteRecipe = ({recipe, open, setOpen}: Props) => {
-  const {t} = useTranslation('recipes');
+  const {t} = useTranslation(['recipes', 'common']);
 
   const navigate = useNavigate();
 
