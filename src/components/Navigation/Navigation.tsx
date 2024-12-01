@@ -39,6 +39,11 @@ const Navigation = () => {
         label: t('PROPOSALS'),
         visible: isAdmin,
       },
+      {
+        path: 'users',
+        label: t('USERS'),
+        visible: isAdmin,
+      },
     ],
     [t, isAdmin],
   );

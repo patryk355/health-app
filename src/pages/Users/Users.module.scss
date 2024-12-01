@@ -1,0 +1,30 @@
+@import '../../globals';
+
+.users {
+  display: flex;
+  flex-direction: column;
+  row-gap: $row-gap;
+
+  h1 {
+    text-align: center;
+    color: $orange;
+  }
+
+  .tableContainer {
+    border-radius: $border-radius;
+
+    table {
+      background-color: $light-grey;
+
+      thead {
+        background-color: $grey;
+        filter: drop-shadow(0 0 0.5rem $grey);
+      }
+
+      td,
+      th {
+        color: $text;
+      }
+    }
+  }
+}

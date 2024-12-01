@@ -1,4 +1,7 @@
 {
   "CREATE_USER_SUCCESS": "Konto zostało utworzone",
-  "CREATE_USER_ERROR": "Nie udało się utworzyć użytkownika"
+  "CREATE_USER_ERROR": "Nie udało się utworzyć użytkownika",
+  "ROLE": "Rola",
+  "admin": "Administrator",
+  "user": "Użytkownik"
 }

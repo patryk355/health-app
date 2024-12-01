@@ -16,6 +16,7 @@ import Profile from './pages/Profile/Profile.tsx';
 import Recipe from './pages/Recipe/Recipe.tsx';
 import Recipes from './pages/Recipes/Recipes.tsx';
 import Register from './pages/Register/Register.tsx';
+import Users from './pages/Users/Users.tsx';
 
 import axios, {getErrorText} from './services/axios.ts';
 import {getMinerals} from './services/minerals.ts';
@@ -97,6 +98,11 @@ const router = createBrowserRouter([
         path: 'profile',
         loader: protectedLoader,
         Component: Profile,
+      },
+      {
+        path: 'users',
+        loader: protectedAdminLoader,
+        Component: Users,
       },
     ],
   },
