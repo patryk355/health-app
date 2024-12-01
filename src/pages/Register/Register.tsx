@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 import Input from '../../components/Input/Input.tsx';
 import useForm from '../../hooks/useForm.ts';
-import {createUser} from '../../services/user.ts';
+import {createUser} from '../../services/users.ts';
 import {emailValidator} from '../../utils/validators.ts';
 import {MIN_PASSWORD_LENGTH} from '../../constants/common.ts';
 

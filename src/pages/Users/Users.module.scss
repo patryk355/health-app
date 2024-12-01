@@ -24,6 +24,19 @@
       td,
       th {
         color: $text;
+
+        .delete {
+          &:hover {
+            svg {
+              color: $red;
+              cursor: pointer;
+              scale: 1.1;
+            }
+          }
+          svg {
+            width: 1.5rem;
+          }
+        }
       }
     }
   }

@@ -3,5 +3,9 @@
   "CREATE_USER_ERROR": "Nie udało się utworzyć użytkownika",
   "ROLE": "Rola",
   "admin": "Administrator",
-  "user": "Użytkownik"
+  "user": "Użytkownik",
+  "DELETE_USER_TITLE": "Usuń użytkownika",
+  "DELETE_USER_DESCRIPTION": "Czy na pewno chcesz usunąć użytkownika o nazwie {{name}}?",
+  "DELETE_USER_SUCCESS": "Użytkownik został usunięty",
+  "DELETE_USER_ERROR": "Nie udało się usunąć użytkownika"
 }
