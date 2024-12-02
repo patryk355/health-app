@@ -9,10 +9,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {useUserStore} from '../../store/userStore.ts';
+import {UserIcon} from '../../assets/icons/UserIcon.tsx';
 
 import styles from './Navigation.module.scss';
 
@@ -196,10 +196,9 @@ const Navigation = () => {
               <>
                 <Tooltip title='Open settings'>
                   <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                    <Avatar
-                      alt='Remy Sharp'
-                      src='/static/images/avatar/2.jpg'
-                    />
+                    <span className={styles.avatar}>
+                      <UserIcon />
+                    </span>
                   </IconButton>
                 </Tooltip>
                 <Menu

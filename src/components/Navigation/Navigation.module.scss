@@ -22,4 +22,16 @@
       scale: 1.05;
     }
   }
+
+  .avatar {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: $grey;
+    border-radius: 50%;
+    padding: 0.5rem;
+
+    svg {
+      stroke: $orange;
+    }
+  }
 }
