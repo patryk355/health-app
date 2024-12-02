@@ -1,6 +1,7 @@
 {
   "CREATE_USER_SUCCESS": "Konto zostało utworzone",
   "CREATE_USER_ERROR": "Nie udało się utworzyć użytkownika",
+  "USER_ALREADY_EXISTS": "Użytkownik już istnieje",
   "ROLE": "Rola",
   "admin": "Administrator",
   "user": "Użytkownik",

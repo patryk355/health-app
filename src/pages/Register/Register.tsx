@@ -34,16 +34,9 @@ const Register = () => {
   const navigate = useNavigate();
 
   const mutation = useMutation({
-    mutationFn: async () => {
-      toast
-        .promise(createUser(data), {
-          pending: t('PROCESSING'),
-          success: t('users:CREATE_USER_SUCCESS'),
-          error: t('users:CREATE_USER_ERROR'),
-        })
-        .then(() => {
-          navigate('/login');
-        });
+    mutationFn: () => createUser(data),
+    onSuccess: () => {
+      navigate('/login');
     },
   });
 
@@ -73,7 +66,12 @@ const Register = () => {
     if (!validate()) {
       return;
     }
-    mutation.mutate();
+
+    await toast.promise(mutation.mutateAsync(), {
+      pending: t('PROCESSING'),
+      success: t('users:CREATE_USER_SUCCESS'),
+      error: t('users:CREATE_USER_ERROR'),
+    });
   };
 
   return (
