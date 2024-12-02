@@ -24,25 +24,22 @@ const DeleteUser = ({user, onClose}: Props) => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: async (userId: number) => {
-      toast
-        .promise(deleteUser(userId), {
-          pending: t('common:PROCESSING'),
-          success: t('DELETE_USER_SUCCESS'),
-          error: t('DELETE_USER_ERROR'),
-        })
-        .then(() => {
-          queryClient.invalidateQueries({
-            queryKey: ['users'],
-          });
-          handleClose();
-        });
+    mutationFn: () => deleteUser(user.id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['users'],
+      });
+      handleClose();
     },
   });
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     console.debug('DeleteUser :: handleDelete', user);
-    mutation.mutate(user.id);
+    await toast.promise(mutation.mutateAsync(), {
+      pending: t('common:PROCESSING'),
+      success: t('DELETE_USER_SUCCESS'),
+      error: t('DELETE_USER_ERROR'),
+    });
   };
 
   const handleClose = () => {

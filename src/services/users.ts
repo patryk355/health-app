@@ -40,6 +40,6 @@ export const deleteUser = async (userId: number): Promise<boolean> => {
     return true;
   } catch (error) {
     console.error('users :: deleteUser', error);
-    return false;
+    throw false;
   }
 };
