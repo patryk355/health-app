@@ -22,14 +22,15 @@ import axios, {getErrorText} from './services/axios.ts';
 import {getMinerals} from './services/minerals.ts';
 import {getGoodness} from './services/goodness.ts';
 import {useUserStore} from './store/userStore.ts';
-
-import 'react-toastify/dist/ReactToastify.css';
-import './App.scss';
+import NoRouteFound from './features/NoRouteFound/NoRouteFound.tsx';
 import {
   loginLoader,
   protectedAdminLoader,
   protectedLoader,
 } from './utils/loaders.ts';
+
+import 'react-toastify/dist/ReactToastify.css';
+import './App.scss';
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
     id: 'root',
     path: '/',
     Component: Layout,
+    errorElement: NoRouteFound,
     children: [
       {
         index: true,
