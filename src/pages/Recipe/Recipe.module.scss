@@ -37,10 +37,6 @@
       column-gap: calc($column-gap / 2);
       color: $text;
 
-      svg {
-        width: 1.5rem;
-      }
-
       &:first-child {
         svg {
           stroke: $red;
