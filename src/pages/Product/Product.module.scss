@@ -90,6 +90,36 @@
     }
   }
 
+  .buttons {
+    button {
+      display: flex;
+      align-items: center;
+      column-gap: calc($column-gap / 2);
+      color: $text;
+
+      &:first-child {
+        svg {
+          stroke: $red;
+        }
+      }
+
+      &:nth-child(2) {
+        svg {
+          stroke: $orange;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $md) {
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      column-gap: $column-gap;
+    }
+  }
   @media (min-width: $lg) {
     .imageContainer {
       grid-template-columns: 1fr 1fr;

@@ -26,3 +26,14 @@ export const getProduct = async (
     return null;
   }
 };
+
+export const deleteProduct = async (productId: number): Promise<boolean> => {
+  try {
+    const response = await axios.delete(`/products/${productId}`);
+    console.debug('products :: deleteProduct', response.data);
+    return true;
+  } catch (error) {
+    console.error('products :: deleteProduct', error);
+    return false;
+  }
+};

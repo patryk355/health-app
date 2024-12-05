@@ -24,5 +24,9 @@
   "ADVANTAGES": "Zalety",
   "DISADVANTAGES": "Wady",
   "CONTRAINDICATIONS": "Przeciwwskazania",
-  "RELATED_RECIPES": "Powiązane przepisy"
+  "RELATED_RECIPES": "Powiązane przepisy",
+  "DELETE_PRODUCT_TITLE": "Usuń produkt",
+  "DELETE_PRODUCT_DESCRIPTION": "Czy na pewno chcesz usunąć produkt o nazwie {{name}}?",
+  "DELETE_PRODUCT_SUCCESS": "Produkt został usunięty",
+  "DELETE_PRODUCT_ERROR": "Nie udało się usunąć produktu"
 }
