@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import {useTranslation} from 'react-i18next';
 import {useNavigate} from 'react-router-dom';
-import {useMutation} from '@tanstack/react-query';
+import {useMutation, useQueryClient} from '@tanstack/react-query';
 import {toast} from 'react-toastify';
 
 import {deleteRecipe} from '../../services/recipes.ts';
@@ -25,23 +25,25 @@ const DeleteRecipe = ({recipe, open, setOpen}: Props) => {
 
   const navigate = useNavigate();
 
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
-    mutationFn: async (recipeId: number) => {
-      toast
-        .promise(deleteRecipe(recipeId), {
-          pending: t('common:PROCESSING'),
-          success: t('DELETE_RECIPE_SUCCESS'),
-          error: t('DELETE_RECIPE_ERROR'),
-        })
-        .then(() => {
-          navigate('/recipes');
-        });
+    mutationFn: () => deleteRecipe(recipe.id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['recipes'],
+      });
+      navigate('/recipes');
     },
   });
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     console.debug('DeleteRecipe :: handleDelete', recipe);
-    mutation.mutate(recipe.id);
+    await toast.promise(mutation.mutateAsync(), {
+      pending: t('common:PROCESSING'),
+      success: t('DELETE_RECIPE_SUCCESS'),
+      error: t('DELETE_RECIPE_ERROR'),
+    });
   };
 
   const handleClose = () => {
