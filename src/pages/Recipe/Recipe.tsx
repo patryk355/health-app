@@ -15,7 +15,7 @@ import {EditIcon} from '../../assets/icons/EditIcon.tsx';
 import styles from './Recipe.module.scss';
 
 const Recipe = () => {
-  const {t} = useTranslation(['recipes', 'products']);
+  const {t} = useTranslation(['recipes', 'products', 'common']);
 
   const {id} = useParams();
 
@@ -95,11 +95,11 @@ const Recipe = () => {
         {isAdmin && (
           <section className={styles.buttons}>
             <Button>
-              {t('EDIT')}
+              {t('common:EDIT')}
               <EditIcon />
             </Button>
             <Button onClick={() => setOpenDeleteModal(true)}>
-              {t('DELETE')}
+              {t('common:DELETE')}
               <DeleteIcon />
             </Button>
           </section>
