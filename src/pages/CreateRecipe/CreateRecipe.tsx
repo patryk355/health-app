@@ -1,7 +1,7 @@
 import {FormEvent} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Button} from '@mui/material';
-import {useMutation} from '@tanstack/react-query';
+import {useMutation, useQueryClient} from '@tanstack/react-query';
 import {toast} from 'react-toastify';
 import {useNavigate} from 'react-router-dom';
 
@@ -32,17 +32,15 @@ const CreateRecipe = () => {
 
   const {t} = useTranslation(['recipes', 'common']);
 
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
-    mutationFn: async (formData: CreateRecipeData) => {
-      toast
-        .promise(createRecipe(formData), {
-          pending: t('common:PROCESSING'),
-          success: t('CREATE_RECIPE_SUCCESS'),
-          error: t('CREATE_RECIPE_ERROR'),
-        })
-        .then(() => {
-          navigate('/recipes');
-        });
+    mutationFn: (formData: CreateRecipeData) => createRecipe(formData),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['recipes'],
+      });
+      navigate('/recipes');
     },
   });
 
@@ -111,7 +109,11 @@ const CreateRecipe = () => {
     if (!isValid) {
       return;
     }
-    mutation.mutate(_data);
+    await toast.promise(mutation.mutateAsync(_data), {
+      pending: t('common:PROCESSING'),
+      success: t('CREATE_RECIPE_SUCCESS'),
+      error: t('CREATE_RECIPE_ERROR'),
+    });
   };
 
   const updateArrayOfString = (field: Field, value: string, index: number) => {
