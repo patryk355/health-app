@@ -7,6 +7,7 @@ import {ToastContainer} from 'react-toastify';
 
 import Navigation from './components/Navigation/Navigation.tsx';
 import CreateRecipe from './pages/CreateRecipe/CreateRecipe.tsx';
+import EditRecipe from './pages/EditRecipe/EditRecipe.tsx';
 import Home from './pages/Home/Home.tsx';
 import Login from './pages/Login/Login.tsx';
 import Logout from './pages/Logout/Logout.tsx';
@@ -72,7 +73,17 @@ const router = createBrowserRouter([
           },
           {
             path: ':id',
-            Component: Recipe,
+            children: [
+              {
+                index: true,
+                Component: Recipe,
+              },
+              {
+                path: 'edit',
+                loader: protectedAdminLoader,
+                Component: EditRecipe,
+              },
+            ],
           },
         ],
       },

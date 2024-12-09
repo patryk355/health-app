@@ -1,5 +1,5 @@
 import {Fragment, useState} from 'react';
-import {Link, Navigate, useParams} from 'react-router-dom';
+import {Link, Navigate, useNavigate, useParams} from 'react-router-dom';
 import {useQuery} from '@tanstack/react-query';
 import {useTranslation} from 'react-i18next';
 import {Button} from '@mui/material';
@@ -18,6 +18,8 @@ const Recipe = () => {
   const {t} = useTranslation(['recipes', 'products', 'common']);
 
   const {id} = useParams();
+
+  const navigate = useNavigate();
 
   const {data: recipe, isPending} = useQuery({
     queryKey: ['recipe', id],
@@ -94,7 +96,7 @@ const Recipe = () => {
         )}
         {isAdmin && (
           <section className={styles.buttons}>
-            <Button>
+            <Button onClick={() => navigate(`/recipes/${id}/edit`)}>
               {t('common:EDIT')}
               <EditIcon />
             </Button>

@@ -20,5 +20,8 @@
   "DELETE_RECIPE_TITLE": "Usuń przepis",
   "DELETE_RECIPE_DESCRIPTION": "Czy na pewno chcesz usunąć przepis o nazwie {{name}}?",
   "DELETE_RECIPE_SUCCESS": "Przepis został usunięty",
-  "DELETE_RECIPE_ERROR": "Nie udało się usunąć przepisu"
+  "DELETE_RECIPE_ERROR": "Nie udało się usunąć przepisu",
+  "UPDATE_RECIPE_SUCCESS": "Przepis został zaktualizowany",
+  "UPDATE_RECIPE_ERROR": "Nie udało się zaktualizować przepisu",
+  "ACTIVE_INFO": "Przepis będzie widoczny dla wszystkich."
 }

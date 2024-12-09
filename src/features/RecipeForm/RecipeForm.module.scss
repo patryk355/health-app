@@ -1,4 +1,4 @@
-@import '../../globals.scss';
+@import '../../globals';
 
 .container {
   svg {
@@ -37,25 +37,25 @@
         }
       }
 
-      .infoContainer {
-        display: flex;
-        align-items: center;
-        column-gap: calc($column-gap / 2);
-
-        span {
-          width: 2rem;
-        }
-
-        svg {
-          stroke: $blue;
-        }
-      }
-
       .inputContainer {
         display: flex;
         align-items: center;
         column-gap: $column-gap;
       }
+    }
+  }
+
+  .infoContainer {
+    display: flex;
+    align-items: center;
+    column-gap: calc($column-gap / 2);
+
+    span {
+      width: 2rem;
+    }
+
+    svg {
+      stroke: $blue;
     }
   }
 

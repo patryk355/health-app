@@ -29,5 +29,6 @@
   "DESCRIPTION": "Opis",
   "PROCESSING": "Przetwarzanie...",
   "CANNOT_FIND_ROUTE": "Nie można znaleźć strony",
-  "BACK_TO_HOMEPAGE": "Wróć do strony głównej"
+  "BACK_TO_HOMEPAGE": "Wróć do strony głównej",
+  "ACTIVE": "Aktywny"
 }

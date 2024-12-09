@@ -1,7 +1,7 @@
 import axios from './axios.ts';
 import {useRecipeStore} from '../store/recipeStore.ts';
 import {imageValidator} from '../utils/validators.ts';
-import {CreateRecipeData, Recipe} from '../types/recipe.ts';
+import {Recipe, RecipeFormData} from '../types/recipe.ts';
 
 export const getRecipes = async (active = true): Promise<Recipe[]> => {
   try {
@@ -35,16 +35,14 @@ export const getRecipe = async (
   }
 };
 
-export const createRecipe = async (
-  data: CreateRecipeData,
-): Promise<true | null> => {
+export const createRecipe = async (data: RecipeFormData): Promise<boolean> => {
   try {
     const response = await axios.post('/recipes', data);
     console.debug('recipes :: createRecipe', response.data);
     return true;
   } catch (error) {
     console.error('recipes :: createRecipe', error);
-    return null;
+    throw false;
   }
 };
 
@@ -55,6 +53,20 @@ export const deleteRecipe = async (recipeId: number): Promise<boolean> => {
     return true;
   } catch (error) {
     console.error('recipes :: deleteRecipe', error);
-    return false;
+    throw false;
+  }
+};
+
+export const updateRecipe = async (
+  recipeId: number,
+  data: RecipeFormData,
+): Promise<boolean> => {
+  try {
+    const response = await axios.put(`/recipes/${recipeId}`, data);
+    console.debug('recipes :: updateRecipe', response.data);
+    return true;
+  } catch (error) {
+    console.error('recipes :: updateRecipe', error);
+    throw false;
   }
 };
