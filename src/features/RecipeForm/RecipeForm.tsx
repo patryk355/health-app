@@ -272,6 +272,7 @@ const RecipeForm = ({recipe, initialData, createAction, editAction}: Props) => {
               <FormControlLabel
                 control={
                   <Checkbox
+                    defaultChecked={initialData?.active || false}
                     value={data.active}
                     onChange={(e) =>
                       onChangeHandler('active', e.target.checked)
