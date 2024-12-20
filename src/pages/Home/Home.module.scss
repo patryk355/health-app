@@ -1,0 +1,79 @@
+@import '../../globals';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: calc($row-gap * 3);
+
+  section {
+    display: flex;
+    flex-direction: column;
+    row-gap: $row-gap;
+
+    h2 {
+      color: $orange;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: $gap;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: $row-gap;
+        background-color: $light-grey;
+        border-radius: $border-radius;
+        border: 3px solid $light-grey;
+        padding: $padding;
+
+        img {
+          width: 5rem;
+        }
+
+        &:hover {
+          filter: brightness(0.9);
+          border-color: $orange;
+
+          img {
+            scale: 1.05;
+          }
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $border-color;
+      padding-bottom: 2rem;
+    }
+  }
+
+  @media (min-width: $md) {
+    section {
+      button {
+        align-self: center;
+      }
+
+      .buttons {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  @media (min-width: $lg) {
+    .buttons {
+      align-self: center;
+
+      a {
+        width: 20rem;
+      }
+    }
+  }
+}

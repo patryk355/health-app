@@ -1,1 +1,8 @@
-{}
+{
+  "PAGE_DESCRIPTION": "Witaj! Znajdujesz się na stronie poświęconej żywności oraz pomysłom na wykonanie dań z nich. Znajdziesz tutaj głównie zdrowe produkty oraz przepisy, które możesz wykonać w swoim zaciszu domowym.",
+  "RANDOM_RECIPE_TITLE": "Losowanie przepisu",
+  "RANDOM_RECIPE_DESCRIPTION": "Nie masz pomysłu na danie? Wylosuj przepis dla siebie!",
+  "DRAW": "Losuj",
+  "NOT_LOGGED_USERS_TITLE": "Chcesz się podzielić swoim przepisem z innymi?",
+  "NOT_LOGGED_USERS_DESCRIPTION": "<registerLink>Utwórz konto</registerLink> lub <loginLink>zaloguj się</loginLink>, aby w pełni korzystać z aplikacji. Możesz proponować swoje przepisy oraz dodawać je do ulubionych! Ponadto masz możliwość dodawania brakujących produktów. Nie zwlekaj, tylko dołącz do naszej społeczności!"
+}
