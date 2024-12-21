@@ -70,3 +70,17 @@ export const updateRecipe = async (
     throw false;
   }
 };
+
+export const getRandomRecipe = async (): Promise<Recipe> => {
+  try {
+    const response = await axios.get('/recipes/random');
+    const images = response.data.images.filter(
+      (item: string) => item && imageValidator(item),
+    );
+    console.debug('recipes :: getRandomRecipe', response.data);
+    return {...response.data, images: images};
+  } catch (error) {
+    console.error('recipes :: getRandomRecipe', error);
+    throw false;
+  }
+};

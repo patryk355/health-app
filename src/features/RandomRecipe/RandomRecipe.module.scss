@@ -1,0 +1,45 @@
+@import '../../globals';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: $row-gap;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid $border-color;
+  padding: $padding;
+  text-decoration: none;
+
+  .imageContainer {
+    width: 12rem;
+
+    img,
+    svg {
+      width: 100%;
+    }
+
+    img {
+      border-radius: $border-radius;
+    }
+
+    @media (min-width: $md) {
+      width: 20rem;
+    }
+
+    @media (min-width: $xl) {
+      width: 25rem;
+    }
+  }
+
+  &:hover {
+    border-bottom-color: $orange;
+
+    svg {
+      stroke: $light-grey;
+    }
+
+    img {
+      filter: brightness(0.8);
+    }
+  }
+}
