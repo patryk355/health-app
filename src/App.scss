@@ -5,12 +5,14 @@ html {
   height: 100%;
   background: $bg-linear-gradient;
   background-attachment: fixed;
+  overscroll-behavior: none;
 }
 
 body {
   font-family: $font-family;
   width: 100vw;
   min-height: 100%;
+  overscroll-behavior: none;
 }
 
 * {
