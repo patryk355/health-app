@@ -30,5 +30,7 @@
   "PROCESSING": "Przetwarzanie...",
   "CANNOT_FIND_ROUTE": "Nie można znaleźć strony",
   "BACK_TO_HOMEPAGE": "Wróć do strony głównej",
-  "ACTIVE": "Aktywny"
+  "ACTIVE": "Aktywny",
+  "ADD_TO_FAVORITES": "Dodaj do ulubionych",
+  "REMOVE_FROM_FAVORITES": "Usuń z ulubionych"
 }

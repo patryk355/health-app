@@ -23,5 +23,7 @@
   "DELETE_RECIPE_ERROR": "Nie udało się usunąć przepisu",
   "UPDATE_RECIPE_SUCCESS": "Przepis został zaktualizowany",
   "UPDATE_RECIPE_ERROR": "Nie udało się zaktualizować przepisu",
-  "ACTIVE_INFO": "Przepis będzie widoczny dla wszystkich."
+  "ACTIVE_INFO": "Przepis będzie widoczny dla wszystkich.",
+  "FAVORITES_UPDATE_SUCCESS": "Ulubione przepisy zostały zaktualizowane",
+  "FAVORITES_UPDATE_ERROR": "Nie udało się zaktualizować ulubionych przepisów"
 }

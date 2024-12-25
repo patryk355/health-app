@@ -28,5 +28,7 @@
   "DELETE_PRODUCT_TITLE": "Usuń produkt",
   "DELETE_PRODUCT_DESCRIPTION": "Czy na pewno chcesz usunąć produkt o nazwie {{name}}?",
   "DELETE_PRODUCT_SUCCESS": "Produkt został usunięty",
-  "DELETE_PRODUCT_ERROR": "Nie udało się usunąć produktu"
+  "DELETE_PRODUCT_ERROR": "Nie udało się usunąć produktu",
+  "FAVORITES_UPDATE_SUCCESS": "Ulubione produkty zostały zaktualizowane",
+  "FAVORITES_UPDATE_ERROR": "Nie udało się zaktualizować ulubionych produktów"
 }

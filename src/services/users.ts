@@ -3,7 +3,8 @@ import {toast} from 'react-toastify';
 
 import i18n from '../i18n.ts';
 import axios from './axios.ts';
-import {CreateUserData, User} from '../types/user.ts';
+import {useUserStore} from '../store/userStore.ts';
+import {CreateUserData, UpdateUserData, User} from '../types/user.ts';
 
 export const createUser = async (data: CreateUserData): Promise<boolean> => {
   try {
@@ -40,6 +41,22 @@ export const deleteUser = async (userId: number): Promise<boolean> => {
     return true;
   } catch (error) {
     console.error('users :: deleteUser', error);
+    throw false;
+  }
+};
+
+export const updateUser = async (
+  userId: number,
+  data: UpdateUserData,
+): Promise<boolean> => {
+  try {
+    const response = await axios.put(`/users/${userId}`, data);
+    console.debug('users :: updateUser', response.data);
+    const user = useUserStore.getState().user;
+    useUserStore.getState().setUser({...user, ...response.data});
+    return true;
+  } catch (error) {
+    console.error('users :: updateUser', error);
     throw false;
   }
 };
