@@ -67,14 +67,16 @@ const Login = () => {
         email: response.data.email,
         username: response.data.username,
         role: response.data.role,
+        favorite_products: response.data.favorite_products,
+        favorite_recipes: response.data.favorite_recipes,
       });
       setIsLogged(true);
-      localStorage.setItem('token', response.data.token);
       localStorage.setItem('token', response.data.token);
       navigate('/');
     } catch (error) {
       // TODO: show error message in UI
       console.error('Login :: onSubmitHandler', error);
+      setIsLogged(false);
     }
   };
 
