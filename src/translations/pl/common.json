@@ -32,5 +32,6 @@
   "BACK_TO_HOMEPAGE": "Wróć do strony głównej",
   "ACTIVE": "Aktywny",
   "ADD_TO_FAVORITES": "Dodaj do ulubionych",
-  "REMOVE_FROM_FAVORITES": "Usuń z ulubionych"
+  "REMOVE_FROM_FAVORITES": "Usuń z ulubionych",
+  "SHOW_ONLY_FAVORITES": "Pokaż tylko ulubione"
 }

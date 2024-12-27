@@ -1,6 +1,7 @@
+import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Link} from 'react-router-dom';
-import {Button} from '@mui/material';
+import {Button, Checkbox, FormControlLabel} from '@mui/material';
 
 import {useUserStore} from '../../store/userStore.ts';
 import RecipeItem from './RecipeItem.tsx';
@@ -14,21 +15,42 @@ interface Props {
 }
 
 const RecipeList = ({recipes, showAddButton}: Props) => {
-  const {t} = useTranslation('recipes');
+  const {t} = useTranslation(['recipes', 'common']);
 
-  const isLogged = useUserStore((state) => state.isLogged);
+  const {isLogged, user} = useUserStore((state) => state);
+
+  const [showFavorites, setShowFavorites] = useState(false);
 
   return (
     <div className={styles.container}>
-      {isLogged && showAddButton && (
-        <Link to={'/recipes/create'}>
-          <Button variant='contained'>{t('ADD_RECIPE')}</Button>
-        </Link>
-      )}
+      <div className={styles.controls}>
+        <div>
+          {user?.role === 'user' && (
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={showFavorites}
+                  onChange={() => setShowFavorites((prev) => !prev)}
+                />
+              }
+              label={t('common:SHOW_ONLY_FAVORITES')}
+            />
+          )}
+        </div>
+        {isLogged && showAddButton && (
+          <Link to={'/recipes/create'}>
+            <Button variant='contained'>{t('ADD_RECIPE')}</Button>
+          </Link>
+        )}
+      </div>
       <div>
-        {recipes.map((recipe) => (
-          <RecipeItem key={`recipe_${recipe.id}`} recipe={recipe} />
-        ))}
+        {recipes
+          .filter((recipe) =>
+            showFavorites ? user?.favorite_recipes.includes(recipe.id) : true,
+          )
+          .map((recipe) => (
+            <RecipeItem key={`recipe_${recipe.id}`} recipe={recipe} />
+          ))}
       </div>
     </div>
   );

@@ -5,6 +5,12 @@
   flex-direction: column;
   row-gap: $row-gap;
 
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   & > a {
     align-self: flex-end;
   }
