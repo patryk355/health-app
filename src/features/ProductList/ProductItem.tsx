@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import {toast} from 'react-toastify';
@@ -21,7 +21,10 @@ const ProductItem = ({product}: ProductItemProps) => {
 
   const user = useUserStore((state) => state.user);
 
-  const isFavorite = user?.favorite_products?.includes(product.id);
+  const isFavorite = useMemo(
+    () => user?.favorite_products?.includes(product.id),
+    [product.id, user?.favorite_products],
+  );
 
   const [image, setImage] = useState<null | string>(null);
 
