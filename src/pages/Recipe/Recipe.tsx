@@ -85,9 +85,7 @@ const Recipe = () => {
             <p>
               {products.map((item, index) => (
                 <Fragment key={item.id}>
-                  <Link to={`/products/${item.id}`}>
-                    {t(`products:${item.name}`)}
-                  </Link>
+                  <Link to={`/products/${item.id}`}>{item.name}</Link>
                   {index !== products.length - 1 && ' • '}
                 </Fragment>
               ))}

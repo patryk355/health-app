@@ -79,7 +79,7 @@ const Product = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1>{t(product.name)}</h1>
+        <h1>{product.name}</h1>
         <div className={styles.imageContainer}>
           <div>
             {product.images[currentImageIndex] ? (

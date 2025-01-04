@@ -78,7 +78,7 @@ const ProductItem = ({product}: ProductItemProps) => {
             <PhotoIcon color='#f1eeee' />
           )}
         </div>
-        <span className='center'>{t(product.name)}</span>
+        <span className='center'>{product.name}</span>
       </Link>
       {user?.role === 'user' && (
         <button
