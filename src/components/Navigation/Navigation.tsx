@@ -11,8 +11,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+
 import {useUserStore} from '../../store/userStore.ts';
 import {UserIcon} from '../../assets/icons/UserIcon.tsx';
+import Logo from '../../assets/images/logo.png';
 
 import styles from './Navigation.module.scss';
 
@@ -108,7 +110,9 @@ const Navigation = () => {
               textDecoration: 'none',
             }}
           >
-            <NavLink to='/'>LOGO</NavLink>
+            <NavLink to='/'>
+              <img src={Logo} alt='logo' style={{width: '120px'}} />
+            </NavLink>
           </Typography>
 
           <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
@@ -175,7 +179,9 @@ const Navigation = () => {
               textDecoration: 'none',
             }}
           >
-            <NavLink to='/'>LOGO</NavLink>
+            <NavLink to='/'>
+              <img src={Logo} alt='logo' style={{width: '120px'}} />
+            </NavLink>
           </Typography>
           <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
             {pages
