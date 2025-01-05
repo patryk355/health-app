@@ -44,7 +44,7 @@ const RecipeForm = ({recipe, initialData, createAction, editAction}: Props) => {
         images.map(async (item) => {
           const isImageValid = await imageValidator(item);
           if (!isImageValid) {
-            toast.error(t('WRONG_IMAGE_URL', {url: item}));
+            toast.error(t('common:WRONG_IMAGE_URL', {url: item}));
             return false;
           }
           return true;
@@ -149,7 +149,7 @@ const RecipeForm = ({recipe, initialData, createAction, editAction}: Props) => {
           value={data.description}
           onChange={onChangeHandler}
         />
-        <div className={styles.ingredients}>
+        <div className={styles.itemsContainer}>
           <span>
             <p>{t('INGREDIENTS')}</p>
             <span
@@ -190,7 +190,7 @@ const RecipeForm = ({recipe, initialData, createAction, editAction}: Props) => {
             );
           })}
         </div>
-        <div className={styles.steps}>
+        <div className={styles.itemsContainer}>
           <span>
             <p>{t('INSTRUCTION')}</p>
             <span
@@ -228,9 +228,9 @@ const RecipeForm = ({recipe, initialData, createAction, editAction}: Props) => {
             );
           })}
         </div>
-        <div className={styles.images}>
+        <div className={styles.itemsContainer}>
           <span>
-            <p>{t('IMAGES')}</p>
+            <p>{t('common:IMAGES')}</p>
             <span
               className={styles.addIcon}
               onClick={() => addEmptyStringToArray('images')}

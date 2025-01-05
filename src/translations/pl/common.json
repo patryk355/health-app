@@ -33,5 +33,7 @@
   "ACTIVE": "Aktywny",
   "ADD_TO_FAVORITES": "Dodaj do ulubionych",
   "REMOVE_FROM_FAVORITES": "Usuń z ulubionych",
-  "SHOW_ONLY_FAVORITES": "Pokaż tylko ulubione"
+  "SHOW_ONLY_FAVORITES": "Pokaż tylko ulubione",
+  "IMAGES": "Zdjęcia",
+  "WRONG_IMAGE_URL": "Niepoprawny link do zdjęcia: {{url}}"
 }

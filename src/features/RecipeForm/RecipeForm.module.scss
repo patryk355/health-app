@@ -1,6 +1,10 @@
 @import '../../globals';
 
 .container {
+  p {
+    font-size: 1.2rem;
+  }
+
   svg {
     width: 2rem;
   }
@@ -20,9 +24,7 @@
     grid-template-columns: 1fr;
     gap: calc($row-gap * 2);
 
-    .ingredients,
-    .steps,
-    .images {
+    .itemsContainer {
       display: flex;
       flex-direction: column;
       row-gap: $row-gap;
