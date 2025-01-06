@@ -19,5 +19,13 @@
   "DELETE_PRODUCT_SUCCESS": "Produkt został usunięty",
   "DELETE_PRODUCT_ERROR": "Nie udało się usunąć produktu",
   "FAVORITES_UPDATE_SUCCESS": "Ulubione produkty zostały zaktualizowane",
-  "FAVORITES_UPDATE_ERROR": "Nie udało się zaktualizować ulubionych produktów"
+  "FAVORITES_UPDATE_ERROR": "Nie udało się zaktualizować ulubionych produktów",
+  "ADD_PRODUCT": "Dodaj produkt",
+  "IMAGES_INFO": "Dodaj linki do zdjęć przedstawiających produkt.",
+  "PRODUCT_CATEGORY": "Kategoria produktu",
+  "PRODUCT_NAME_REQUIRED": "Nazwa produktu jest wymagana",
+  "PRODUCT_DESCRIPTION_REQUIRED": "Opis produktu jest wymagany",
+  "PRODUCT_CATEGORY_REQUIRED": "Wybierz kategorię produktu",
+  "CREATE_PRODUCT_SUCCESS": "Produkt został dodany",
+  "CREATE_PRODUCT_ERROR": "Nie udało się dodać produktu"
 }

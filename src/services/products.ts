@@ -1,6 +1,6 @@
 import axios from './axios.ts';
 import {useProductStore} from '../store/productStore.ts';
-import {Product} from '../types/product.ts';
+import {CreateProductData, Product, ProductFormData} from '../types/product.ts';
 
 export const getProducts = async (): Promise<Product[]> => {
   try {
@@ -35,5 +35,18 @@ export const deleteProduct = async (productId: number): Promise<boolean> => {
   } catch (error) {
     console.error('products :: deleteProduct', error);
     return false;
+  }
+};
+
+export const createProduct = async (
+  data: CreateProductData,
+): Promise<boolean> => {
+  try {
+    const response = await axios.post('/products', data);
+    console.debug('products :: createProduct', response.data);
+    return true;
+  } catch (error) {
+    console.error('products :: createProduct', error);
+    throw false;
   }
 };

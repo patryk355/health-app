@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import {useSearchParams} from 'react-router-dom';
+import {Link, useSearchParams} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import {useQuery} from '@tanstack/react-query';
-import {Checkbox, FormControlLabel} from '@mui/material';
+import {Button, Checkbox, FormControlLabel} from '@mui/material';
 
 import {useUserStore} from '../../store/userStore.ts';
 import CategoryList from '../../features/CategoryList/CategoryList.tsx';
@@ -64,6 +64,11 @@ const Products = () => {
               }
               label={t('SHOW_ONLY_FAVORITES')}
             />
+          )}
+          {user?.role === 'admin' && (
+            <Link to='/products/create' className={styles.addProduct}>
+              <Button variant='contained'>{t('ADD_PRODUCT')}</Button>
+            </Link>
           )}
           <ProductList
             products={
