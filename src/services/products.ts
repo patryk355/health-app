@@ -1,6 +1,6 @@
 import axios from './axios.ts';
 import {useProductStore} from '../store/productStore.ts';
-import {CreateProductData, Product, ProductFormData} from '../types/product.ts';
+import {CreateProductData, Product} from '../types/product.ts';
 
 export const getProducts = async (): Promise<Product[]> => {
   try {

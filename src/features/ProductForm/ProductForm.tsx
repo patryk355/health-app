@@ -38,15 +38,9 @@ interface Props {
   product?: Product;
   initialData?: ProductFormData;
   createAction?: (data: CreateProductData) => void;
-  editAction?: (data: ProductFormData) => void;
 }
 
-const ProductForm = ({
-  product,
-  initialData,
-  createAction,
-  editAction,
-}: Props) => {
+const ProductForm = ({product, initialData, createAction}: Props) => {
   const {t} = useTranslation(['products', 'common']);
 
   const {data: categories, isPending: isCategoriesPending} = useQuery({

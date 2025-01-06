@@ -29,7 +29,7 @@ export interface ProductFormData {
   disadvantages: string[];
   contraindications: string[];
   images: string[];
-  category_id: '' | number;
+  category_id: string | number;
   minerals: Goodness[];
   goodness: Mineral[];
 }
